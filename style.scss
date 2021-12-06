@@ -1,0 +1,87 @@
+@mixin divBox {
+  box-shadow: 0px 0px 10px rgb(101, 6, 165) inset;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow-y: auto;
+}
+.header {
+  height: 30vh;
+  width: 90vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 20px;
+  @include divBox();
+  background-image: url("https://wallpaperaccess.com/full/187161.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  h3{
+    margin-top: 10vh;
+    @include divBox();
+    background-color: white;
+    height: 8vh;
+    border-radius: 30%;
+    padding: 5px;
+font-size: 3vw;
+  }
+  h1{
+    margin-top: 5vh;
+    font-size: 5vw;
+    @include divBox();
+    border-radius: 20%;
+    height: 14vh;
+    color: white;
+  }
+}
+.main {
+  display: flex;
+  height: 65vh;
+  width: 90vw;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.cBox {
+  @include divBox();
+  height: 125px;
+  width: 250px;
+  margin: 40px;
+  border-radius: 20% 20% 0 0;
+  padding: 10px;
+  position: relative;
+}
+.cBoxMore{
+  justify-content: space-evenly;
+  height: 100px;
+  width: 250px;
+  box-shadow: 0px 0px 10px rgb(101, 6, 165) inset;
+  top: 100%;
+  left: 0;
+  position: absolute;
+  border-radius: 0 0 20% 20%;
+  display: none;
+  flex-wrap: wrap;
+
+}
+.cSearch {
+   margin-top: 20vh;
+  height: 5vh;
+  width: 10vw;
+}
+.cIMG{
+  height: 30px;
+  width: 30px;
+}
