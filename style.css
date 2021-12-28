@@ -24,7 +24,7 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   overflow-y: auto;
-  background-color: blueviolet;
+  position: relative;
 }
 
 .header {
@@ -46,6 +46,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  border-radius: 20px;
 }
 
 .header h3 {
@@ -54,7 +55,7 @@ body {
           box-shadow: 0px 0px 10px #6506a5 inset;
   background-color: white;
   height: 8vh;
-  border-radius: 30%;
+  border-radius: 20px;
   padding: 5px;
   font-size: 3vw;
 }
@@ -66,21 +67,37 @@ body {
           box-shadow: 0px 0px 10px #6506a5 inset;
   border-radius: 20%;
   height: 14vh;
+  color: rgba(255, 255, 255, 0.541);
+}
+
+.header h1:hover {
+  -webkit-box-shadow: 0px 0px 30px #7909c4;
+          box-shadow: 0px 0px 30px #7909c4;
+  color: white;
+}
+
+.header h3:hover {
+  background-color: #ff00c8;
+  -webkit-box-shadow: 0px 0px 30px #7909c4;
+          box-shadow: 0px 0px 30px #7909c4;
   color: white;
 }
 
 .main {
   background-color: white;
+  top: 35vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: auto;
   width: 90vw;
+  height: auto;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  position: absolute;
+  z-index: 0;
 }
 
 .cBox {
@@ -115,6 +132,7 @@ body {
   margin-top: 20vh;
   height: 5vh;
   width: 10vw;
+  border-radius: 20px;
 }
 
 .cIMG {
@@ -123,5 +141,235 @@ body {
   position: absolute;
   right: 10px;
   top: 5px;
+  z-index: 0;
+}
+
+.cToggle {
+  visibility: hidden;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.cToggle:before {
+  content: "\2606";
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  visibility: visible;
+}
+
+.cToggle:checked:before {
+  content: "\2605";
+  color: yellow;
+  position: absolute;
+}
+
+.popDiv {
+  -webkit-box-shadow: 0px 0px 40px #7909c4;
+          box-shadow: 0px 0px 40px #7909c4;
+  height: 40vh;
+  width: 30vw;
+  position: absolute;
+  top: 50%;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  background-color: white;
+  z-index: 2;
+  border-radius: 20px;
+}
+
+.popDiv button {
+  position: absolute;
+  right: 20px;
+  top: 0;
+  font-size: 20px;
+  border: none;
+  background-color: transparent;
+}
+
+.popDiv button:hover {
+  color: white;
+  font-size: 23px;
+}
+
+.popDiv h3 {
+  margin-top: 10px;
+  margin-left: 15px;
+}
+
+.lvCoin {
+  height: 30vh;
+  width: 28vw;
+}
+
+.imgPos {
+  position: absolute;
+  left: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 60vh;
+  width: 20vw;
+  -webkit-box-shadow: 0px 0px 10px #7909c4;
+          box-shadow: 0px 0px 10px #7909c4;
+  border-radius: 20px;
+}
+
+.imgPos img {
+  border-radius: 20px;
+  height: 60vh;
+  width: 20vw;
+}
+
+.aboutDiv {
+  left: 25vw;
+  width: 65vw;
+  -webkit-box-shadow: 0px 0px 10px #7909c4;
+          box-shadow: 0px 0px 10px #7909c4;
+  height: 60vh;
+  position: absolute;
+  border-radius: 20px;
+}
+
+.cInfo {
+  position: absolute;
+  top: 85px;
+  left: 10px;
+  background-color: #7909c4;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border: none;
+  font-size: 16px;
+  border-radius: 20px;
+  width: 150px;
+}
+
+.cInfo:hover {
+  background-color: #9d51cf;
+  -webkit-box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.loader-container {
+  background-color: #111;
+  width: 250px;
+  position: absolute;
+  height: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 1;
+  border-radius: 0 0 20px 20px;
+  -webkit-box-shadow: 0px 0px 10px #7909c4 inset;
+          box-shadow: 0px 0px 10px #7909c4 inset;
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 5px solid;
+  color: #9d51cf;
+  border-radius: 50%;
+  border-top-color: transparent;
+  -webkit-animation: loader 1.2s linear infinite;
+          animation: loader 1.2s linear infinite;
+}
+
+@-webkit-keyframes loader {
+  25% {
+    color: #b31dc7;
+  }
+  50% {
+    color: #990680;
+  }
+  75% {
+    color: #69183e;
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes loader {
+  25% {
+    color: #b31dc7;
+  }
+  50% {
+    color: #990680;
+  }
+  75% {
+    color: #69183e;
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.blackbg {
+  background-color: transparent;
+  position: fixed;
+  width: 100vw;
+  height: 1000vh;
+  z-index: 1;
+  opacity: 0.7;
+}
+
+#favdata {
+  height: 28px;
+  width: 100%;
+  -webkit-box-shadow: 0px 0px 5px #6e21a1;
+          box-shadow: 0px 0px 5px #6e21a1;
+  position: relative;
+  border-radius: 20px;
+}
+
+#favdata:hover {
+  -webkit-box-shadow: 0px 0px 10px #8c21a1;
+          box-shadow: 0px 0px 10px #8c21a1;
+  background-color: #9370d8;
+  color: white;
+}
+
+.loadersc {
+  background-color: transparent;
+  width: 90vw;
+  position: fixed;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 3;
+  border-radius: 0 0 20px 20px;
+  -webkit-box-shadow: 0px 0px 10px #7909c4 inset;
+          box-shadow: 0px 0px 10px #7909c4 inset;
+  overflow-y: hidden;
+}
+
+.loaderanim {
+  width: 350px;
+  height: 350px;
+  border: 5px solid;
+  color: #9d51cf;
+  border-radius: 50%;
+  border-top-color: transparent;
+  -webkit-animation: loader 1.2s linear infinite;
+          animation: loader 1.2s linear infinite;
 }
 /*# sourceMappingURL=style.css.map */
