@@ -103,7 +103,7 @@ body {
 .cBox {
   -webkit-box-shadow: 0px 0px 10px #6506a5 inset;
           box-shadow: 0px 0px 10px #6506a5 inset;
-  height: 125px;
+  height: 150px;
   width: 250px;
   margin: 40px;
   border-radius: 10px 10px 0 0;
@@ -177,6 +177,11 @@ body {
   background-color: white;
   z-index: 2;
   border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .popDiv button {
@@ -204,7 +209,7 @@ body {
 }
 
 .imgPos {
-  position: absolute;
+  position: relative;
   left: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -223,18 +228,26 @@ body {
 }
 
 .aboutDiv {
-  left: 25vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   width: 65vw;
   -webkit-box-shadow: 0px 0px 10px #7909c4;
           box-shadow: 0px 0px 10px #7909c4;
   height: 60vh;
-  position: absolute;
+  position: relative;
   border-radius: 20px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
 .cInfo {
   position: absolute;
-  top: 85px;
+  top: 110px;
   left: 10px;
   background-color: #7909c4;
   color: white;

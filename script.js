@@ -1,10 +1,9 @@
 $(() => {
   let coinArr = [];
-  let favCoins = [];
+  let favCoins = !localStorage.Favorites ? []: JSON.parse(localStorage.Favorites);
+  
   let newFav;
-  let inputid;
   function coinsP() {
-
     $.get(
       `https://api.coingecko.com/api/v3/coins/
   `,
@@ -16,14 +15,15 @@ $(() => {
     );
   }
   function displayCoins() {
+
     if ($(".cSearch").val() === "") {
       for (const token of coinArr) {
         $(".main").append(`<div class="cBox">
    
       <h1 class="cName">${token.name}</h1>
       <p class="cSym">${token.symbol.toUpperCase()}</p>
-     
-      <input type="checkbox"  id="${token.name}" class="cToggle">
+     <input type="checkbox" id="${token.name}" class="cToggle">
+      
       <button class="cInfo">More Information</button>
       <div class="cBoxMore">   
       <div class="loader-container">
@@ -31,8 +31,9 @@ $(() => {
     </div>
 
   </div>
-      `)
-      $(".loadersc").remove();
+      `);
+        $(".loadersc").remove();
+        checkbox(token.name);
       }
     } else {
       const coinsFilter = coinArr.filter(
@@ -55,7 +56,8 @@ $(() => {
    
 </div>
     `);
-      }
+    checkbox(token.name);
+  }
     }
     $(".cInfo").click(function () {
       $(this).next().slideToggle();
@@ -79,18 +81,18 @@ $(() => {
       );
     });
     $(".cToggle").change(function () {
-      inputid=($(this).attr('id'));
-      console.log(inputid);
-      if (favCoins.length < 5 || !this.checked) {
-        if (this.checked) {
+      if (favCoins.length < 5 || !$(this).prop( "checked" )) {
+        if ($(this).prop( "checked" )) {
           favCoins.push($(this).prev().prev().text());
-          localStorage.setItem("Favorites", favCoins);
-          console.log(favCoins);
+          localStorage.setItem("Favorites", JSON.stringify(favCoins));
+          console.log(favCoins)
+          
         } else {
           let indexFav = favCoins.indexOf($(this).prev().prev().text());
           favCoins.splice(indexFav, 1);
-          localStorage.setItem("Favorites", favCoins);
-          console.log(favCoins);
+
+          localStorage.setItem("Favorites", JSON.stringify(favCoins));
+      
         }
       } else {
         newFav = $(this).prev().prev().text();
@@ -104,6 +106,7 @@ $(() => {
       <div class="blackbg"></div>
       `);
         $(".blackbg").css("background-color", "black");
+        favC();
       }
       function favC() {
         for (const favCoin of favCoins) {
@@ -114,30 +117,35 @@ $(() => {
     `);
         }
       }
-      favC();
+   
       $(".popCdel").click(function dltCoin() {
         let indexFav = favCoins.indexOf($(this).prev().text());
         favCoins.splice(indexFav, 1);
         favCoins.push(newFav);
-        localStorage.setItem("Favorites", favCoins);
+        localStorage.setItem("Favorites", JSON.stringify(favCoins));
         console.log(favCoins);
+         displayCoins();
         $(".popDiv").remove();
         $(".blackbg").remove();
-        checkbox($(this).prev().text());
+        $(".main").html("");
+        displayCoins();
       });
     });
   }
+  console.log(favCoins)
   function checkbox(e) {
-    console.log(favCoins);
     for (const coin of favCoins) {
-      if (e === coin) {
-        $(`#${e}`).prop("checked", true);
+      console.log(coin === e)
+      if (coin === e) {
+        $(`#${e}`).prop("checked",true);
+   
       } else {
-        console.log($(`#${e}`));
-        $(`#${e}`).prop("checked", false);
+        // $(`#${e}`).removeAttr('checked');
+        
       }
     }
   }
+  
   $(".about").click(function () {
     $(".main").html("");
     $(".main").append(`
@@ -149,7 +157,7 @@ $(() => {
   <h3>Basically the site is writen with : Html, Css, Jquery.</h3>
   <h3>This Project is about the Crypto World, It's shows you the coin prices per 3 currncies (USD,EUR,ILS).</h3>
   <h3>You can add up to 5 coins to your favorites, The coins that selected to your favorites will be displayed ...</h3>
-  <h3>at the "Live Stats" section where you can watch live statistic about your favorites coins.</h3>
+  <h3>with a yellow star</h3>
   </div>
   `);
   });
