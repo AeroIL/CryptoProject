@@ -46,11 +46,11 @@ body {
     height: 14vh;
     color: rgba(255, 255, 255, 0.541);
   }
-  h1:hover{
+  h1:hover {
     box-shadow: 0px 0px 30px #7909c4;
     color: rgb(255, 255, 255);
   }
-  h3:hover{
+  h3:hover {
     background-color: rgb(255, 0, 200);
     box-shadow: 0px 0px 30px #7909c4;
     color: white;
@@ -63,7 +63,7 @@ body {
   width: 90vw;
   height: auto;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  
   position: absolute;
   z-index: 0;
 }
@@ -120,7 +120,7 @@ body {
   position: absolute;
 }
 .popDiv {
-  box-shadow: 0px 0px 40px #7909c4 ;
+  box-shadow: 0px 0px 40px #7909c4;
   height: 40vh;
   width: 30vw;
   position: absolute;
@@ -131,20 +131,19 @@ body {
   border-radius: 20px;
   display: flex;
   flex-wrap: wrap;
-  button{
+  button {
     position: absolute;
     right: 20px;
     top: 0;
     font-size: 20px;
     border: none;
     background-color: transparent;
-
   }
-  button:hover{
+  button:hover {
     color: white;
     font-size: 23px;
   }
-  h3{
+  h3 {
     margin-top: 10px;
     margin-left: 15px;
   }
@@ -174,9 +173,17 @@ body {
   width: 65vw;
   box-shadow: 0px 0px 10px #7909c4;
   height: 60vh;
+  left: 15px;
   position: relative;
   border-radius: 20px;
   flex-direction: row;
+  padding: 10px;
+  justify-content: space-evenly;
+  overflow-y: auto;
+  h3{
+padding: 30px;
+  }
+
 }
 .cInfo {
   position: absolute;
@@ -197,7 +204,7 @@ body {
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
-.loader-container{
+.loader-container {
   background-color: #111;
   width: 250px;
   position: absolute;
@@ -210,7 +217,7 @@ body {
   box-shadow: 0px 0px 10px #7909c4 inset;
 }
 
-.loader{
+.loader {
   width: 50px;
   height: 50px;
   border: 5px solid;
@@ -220,43 +227,41 @@ body {
   animation: loader 1.2s linear infinite;
 }
 
-@keyframes loader{
-  25%{
-      color: #b31dc7;
+@keyframes loader {
+  25% {
+    color: #b31dc7;
   }
-  50%{
-      color: #990680;
+  50% {
+    color: #990680;
   }
-  75%{
-      color: #69183e;
+  75% {
+    color: #69183e;
   }
-  to{
-      transform: rotate(360deg);
+  to {
+    transform: rotate(360deg);
   }
 }
-.blackbg{
+.blackbg {
   background-color: transparent;
   position: fixed;
   width: 100vw;
   height: 1000vh;
   z-index: 1;
   opacity: 0.7;
-
 }
-#favdata{
+#favdata {
   height: 28px;
   width: 100%;
   box-shadow: 0px 0px 5px #6e21a1;
   position: relative;
   border-radius: 20px;
 }
-#favdata:hover{
+#favdata:hover {
   box-shadow: 0px 0px 10px #8c21a1;
   background-color: #9370d8;
   color: white;
- 
 }
-.loadersc{
+.loadersc {
   background-color: transparent;
   width: 90vw;
   position: fixed;
@@ -270,7 +275,7 @@ body {
   overflow-y: hidden;
 }
 
-.loaderanim{
+.loaderanim {
   width: 350px;
   height: 350px;
   border: 5px solid;
@@ -278,4 +283,9 @@ body {
   border-radius: 50%;
   border-top-color: transparent;
   animation: loader 1.2s linear infinite;
+}
+.e404 {
+  position: absolute;
+  align-self: center;
+  font-size: 200px;
 }
